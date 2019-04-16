@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xIk-ZT-Nti">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tareas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Tareas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gbr-0o-BvD">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gbr-0o-BvD" secondAttribute="bottom" id="LAJ-eR-yf3"/>
+                            <constraint firstItem="gbr-0o-BvD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fsZ-vF-lAv"/>
+                            <constraint firstItem="gbr-0o-BvD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ohp-WC-hXR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gbr-0o-BvD" secondAttribute="trailing" id="skl-cF-3Sf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tareas" id="6a9-R3-rxn">
+                        <barButtonItem key="backBarButtonItem" title="back" id="abd-l0-VcO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hfJ-rR-n2T">
+                            <connections>
+                                <action selector="nuevaTarea:" destination="BYZ-38-t0r" id="OdD-Tk-AFF"/>
+                                <segue destination="AJY-Co-WDh" kind="show" identifier="agregarSegue" id="kPv-Ep-Mx0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="gbr-0o-BvD" id="352-ff-biE"/>
+                        <segue destination="v9y-CN-Nbb" kind="show" identifier="tareaSeleccionadaSegue" id="woi-kY-DXQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="134"/>
+        </scene>
+        <!--Tarea Completada View Controller-->
+        <scene sceneID="MFi-dp-7iD">
+            <objects>
+                <viewController id="v9y-CN-Nbb" customClass="TareaCompletadaViewController" customModule="Tareas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YVu-fz-SsF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xON-oQ-GKG">
+                                <rect key="frame" x="158" y="108" width="59.333333333333343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eao-fa-OEQ">
+                                <rect key="frame" x="142.66666666666666" y="158" width="89" height="30"/>
+                                <state key="normal" title="Completado!"/>
+                                <connections>
+                                    <action selector="completarTarea:" destination="v9y-CN-Nbb" eventType="touchUpInside" id="81x-Iv-1ph"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Eao-fa-OEQ" firstAttribute="centerX" secondItem="YVu-fz-SsF" secondAttribute="centerX" id="G0X-Nk-8Px"/>
+                            <constraint firstItem="Eao-fa-OEQ" firstAttribute="top" secondItem="xON-oQ-GKG" secondAttribute="bottom" constant="20" id="JYk-X0-lFd"/>
+                            <constraint firstItem="xON-oQ-GKG" firstAttribute="centerX" secondItem="YVu-fz-SsF" secondAttribute="centerX" id="gPz-WQ-6bi"/>
+                            <constraint firstItem="xON-oQ-GKG" firstAttribute="top" secondItem="8Kx-tl-7Db" secondAttribute="top" constant="20" id="mKO-aa-Qso"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Kx-tl-7Db"/>
+                    </view>
+                    <connections>
+                        <outlet property="tareaLabel" destination="xON-oQ-GKG" id="Ol6-e5-ip2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVw-oa-hNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="870"/>
+        </scene>
+        <!--Crear Tarea View Controller-->
+        <scene sceneID="FRk-4L-uWC">
+            <objects>
+                <viewController id="AJY-Co-WDh" customClass="CrearTareaViewController" customModule="Tareas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yiC-84-wyf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqR-H3-sKr">
+                                <rect key="frame" x="154" y="103" width="66.333333333333314" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rt6-H4-OhV">
+                                <rect key="frame" x="40" y="133.33333333333334" width="295" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Importante:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-Zt-fXg">
+                                <rect key="frame" x="143" y="203.33333333333334" width="89" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-kW-mnu">
+                                <rect key="frame" x="163" y="211" width="50" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TId-KI-PLl">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6H5-at-XFt">
+                                <rect key="frame" x="163" y="233.66666666666666" width="51" height="30.999999999999972"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT7-Kv-umh">
+                                <rect key="frame" x="159.66666666666666" y="294.66666666666669" width="55" height="30"/>
+                                <state key="normal" title="Agregar"/>
+                                <connections>
+                                    <action selector="agregar:" destination="AJY-Co-WDh" eventType="touchUpInside" id="dNx-oZ-780"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rt6-H4-OhV" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="7pc-Ax-c3h"/>
+                            <constraint firstItem="6Tv-ce-rPw" firstAttribute="trailing" secondItem="rt6-H4-OhV" secondAttribute="trailing" constant="40" id="Gsj-Oa-dsb"/>
+                            <constraint firstItem="ZUU-Zt-fXg" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="Iq8-Gv-41U"/>
+                            <constraint firstItem="ZUU-Zt-fXg" firstAttribute="top" secondItem="rt6-H4-OhV" secondAttribute="bottom" constant="40" id="LmU-yq-h3C"/>
+                            <constraint firstItem="pqR-H3-sKr" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="Otg-KC-rsT"/>
+                            <constraint firstItem="rt6-H4-OhV" firstAttribute="leading" secondItem="6Tv-ce-rPw" secondAttribute="leading" constant="40" id="bzw-U3-Kwt"/>
+                            <constraint firstItem="0dK-kW-mnu" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="e6e-iH-EUW"/>
+                            <constraint firstItem="CT7-Kv-umh" firstAttribute="top" secondItem="6H5-at-XFt" secondAttribute="bottom" constant="30" id="fF1-5z-hqh"/>
+                            <constraint firstItem="rt6-H4-OhV" firstAttribute="top" secondItem="pqR-H3-sKr" secondAttribute="bottom" constant="10" id="hY3-qt-QGZ"/>
+                            <constraint firstItem="pqR-H3-sKr" firstAttribute="top" secondItem="6Tv-ce-rPw" secondAttribute="top" constant="15" id="lby-FH-KMQ"/>
+                            <constraint firstItem="6H5-at-XFt" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="r3X-s0-c7X"/>
+                            <constraint firstItem="CT7-Kv-umh" firstAttribute="centerX" secondItem="yiC-84-wyf" secondAttribute="centerX" id="vPk-uH-CEm"/>
+                            <constraint firstItem="6H5-at-XFt" firstAttribute="top" secondItem="ZUU-Zt-fXg" secondAttribute="bottom" constant="10" id="wLS-xg-Hrx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tv-ce-rPw"/>
+                    </view>
+                    <connections>
+                        <outlet property="swImportante" destination="6H5-at-XFt" id="XSe-3S-GtR"/>
+                        <outlet property="txtNombreTarea" destination="rt6-H4-OhV" id="WIb-sq-PhE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6f-Sx-rRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gnw-60-JzX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIk-ZT-Nti" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EG3-pl-ZX8">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UBu-tK-dsz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfA-A9-rls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-340" y="134"/>
+        </scene>
+    </scenes>
+</document>
